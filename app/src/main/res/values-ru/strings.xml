@@ -3,4 +3,5 @@
     <string name="app_name">НМедиа</string>
     <string name="nmediaText">НМедиа!</string>
     <string name="logo_netology">Аватар автора поста</string>
+    <string name="button_more">Кнопка еще</string>
 </resources>
