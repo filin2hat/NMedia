@@ -4,4 +4,6 @@
     <string name="logo_netology">Post author avatar</string>
     <string name="button_more">Button more</string>
     <string name="likes_button">Likes button</string>
+    <string name="views">Views</string>
+    <string name="share_button">Share button</string>
 </resources>
