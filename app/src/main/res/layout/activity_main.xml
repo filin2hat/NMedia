@@ -14,20 +14,21 @@
         android:contentDescription="@string/logo_netology"
         android:src="@drawable/ic_netology_48dp"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toBottomOf="@id/barrierTop"/>
 
     <TextView
         android:id="@+id/author"
         android:layout_width="0dp"
-        android:singleLine="true"
-        android:ellipsize="end"
-        android:layout_marginHorizontal="@dimen/common_spacing"
         android:layout_height="wrap_content"
-        app:layout_constraintEnd_toStartOf="@id/menu"
-        app:layout_constraintVertical_chainStyle="packed"
+        android:layout_marginHorizontal="@dimen/common_spacing"
+        android:ellipsize="end"
+        android:singleLine="true"
         app:layout_constraintBottom_toTopOf="@id/published"
+        app:layout_constraintEnd_toStartOf="@id/menu"
         app:layout_constraintStart_toEndOf="@id/avatar"
         app:layout_constraintTop_toTopOf="@id/avatar"
+        app:layout_constraintVertical_chainStyle="packed"
         tools:text="@sample/posts.json/data/author" />
 
     <TextView
@@ -38,15 +39,30 @@
         app:layout_constraintBottom_toBottomOf="@id/avatar"
         app:layout_constraintStart_toEndOf="@id/avatar"
         app:layout_constraintTop_toBottomOf="@id/author"
-        tools:text="@sample/posts.json/data/published"/>
+        tools:text="@sample/posts.json/data/published" />
 
     <ImageButton
         android:id="@+id/menu"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
         android:background="@android:color/transparent"
+        android:contentDescription="@string/button_more"
         android:src="@drawable/ic_baseline_more_vert_24"
-        android:contentDescription="@string/button_more" />
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <androidx.constraintlayout.widget.Barrier
+        android:id="@+id/barrierTop"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:barrierDirection="bottom"
+        app:constraint_referenced_ids="avatar,published,menu" />
+
+    <TextView
+        android:id="@+id/content"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/common_spacing"
+        app:layout_constraintTop_toBottomOf="@id/barrierTop"
+        tools:text="@sample/posts.json/data/content" />
 </androidx.constraintlayout.widget.ConstraintLayout>
