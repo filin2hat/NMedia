@@ -4,4 +4,5 @@
     <string name="nmediaText">НМедиа!</string>
     <string name="logo_netology">Аватар автора поста</string>
     <string name="button_more">Кнопка еще</string>
+    <string name="likes_button">Кпопка нравится</string>
 </resources>

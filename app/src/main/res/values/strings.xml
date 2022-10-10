@@ -3,4 +3,5 @@
     <string name="nmediaText">NMedia!</string>
     <string name="logo_netology">Post author avatar</string>
     <string name="button_more">Button more</string>
+    <string name="likes_button">Likes button</string>
 </resources>
