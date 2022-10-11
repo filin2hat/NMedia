@@ -2,4 +2,9 @@
 <resources>
     <string name="app_name">НМедиа</string>
     <string name="nmediaText">НМедиа!</string>
+    <string name="logo_netology">Аватар автора поста</string>
+    <string name="button_more">Кнопка еще</string>
+    <string name="likes_button">Кпопка нравится</string>
+    <string name="views">Просмотры</string>
+    <string name="share_button">Кнопка поделиться</string>
 </resources>
