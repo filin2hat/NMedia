@@ -26,14 +26,18 @@ class MainActivity : AppCompatActivity() {
                     " цепочку перемен → http://netolo.gy/fyb",
             published = "21 мая в 18:36",
             likedByMe = false,
-            likes = 0,
-            shares = 0
+            likes = 1100,
+            shares = 12000,
+            views = 1300000
         )
         with(binding) {
             author.text = post.author
             published.text = post.published
             content.text = post.content
-            likesCounter.text = post.likes.toString()
+            likesCounter.text = counterNumbersToShortString(post.likes)
+            sharedCounter.text = counterNumbersToShortString(post.shares)
+            countViews.text = counterNumbersToShortString(post.views)
+
             if (post.likedByMe) {
                 likesButton.setImageResource(R.drawable.ic_liked_24)
             }
@@ -44,16 +48,27 @@ class MainActivity : AppCompatActivity() {
                     if (post.likedByMe) R.drawable.ic_liked_24 else R.drawable.ic_like_24
                 )
                 if (post.likedByMe) post.likes++ else post.likes--
-                likesCounter.text = post.likes.toString()
+                likesCounter.text = counterNumbersToShortString(post.likes)
             }
 
-            sharedCounter.text = post.shares.toString()
             shareButton.setOnClickListener {
-                post.shares += 10
-                sharedCounter.text = post.shares.toString()
+                post.shares++
+                sharedCounter.text = counterNumbersToShortString(post.shares)
             }
 
         }
 
+    }
+
+    private fun counterNumbersToShortString(number: Int): String {
+        return when {
+            number in 1_000..1_099 -> "1K"
+            number in 1_100..9_999 && number % 1000 == 0 -> "${number / 1000}K"
+            number in 1_100..9_999 && number % 1000 != 0 -> ((number / 100).toDouble() / 10).toString() + "K"
+            number in 10_000..999_999 -> "${number / 1000}K"
+            number >= 1_000_000 && number % 1000000 == 0 -> "${number / 1000000}M"
+            number >= 1_000_000 && number % 1000000 != 0 -> ((number / 100000).toDouble() / 10).toString() + "M"
+            else -> number.toString()
+        }
     }
 }
