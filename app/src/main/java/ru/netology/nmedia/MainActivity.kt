@@ -2,12 +2,14 @@ package ru.netology.nmedia
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.util.Log
 import ru.netology.nmedia.databinding.ActivityMainBinding
 import ru.netology.nmedia.dto.Post
 
 class MainActivity : AppCompatActivity() {
 
     private lateinit var binding: ActivityMainBinding
+    private val debug = "MyLog"
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -30,6 +32,9 @@ class MainActivity : AppCompatActivity() {
             shares = 12000,
             views = 1300000
         )
+        binding.root.setOnClickListener{
+            Log.d(debug, "ROOT is pressed")
+        }
         with(binding) {
             author.text = post.author
             published.text = post.published
@@ -43,6 +48,7 @@ class MainActivity : AppCompatActivity() {
             }
 
             likesButton.setOnClickListener {
+                Log.d(debug, "LIKE button is pressed")
                 post.likedByMe = !post.likedByMe
                 likesButton.setImageResource(
                     if (post.likedByMe) R.drawable.ic_liked_24 else R.drawable.ic_like_24
