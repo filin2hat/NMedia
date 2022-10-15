@@ -35,6 +35,9 @@ class MainActivity : AppCompatActivity() {
         binding.root.setOnClickListener{
             Log.d(debug, "ROOT is pressed")
         }
+        binding.avatar.setOnClickListener {
+            Log.d(debug, "AVATAR is pressed")
+        }
         with(binding) {
             author.text = post.author
             published.text = post.published
